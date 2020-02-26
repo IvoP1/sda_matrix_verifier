@@ -122,7 +122,7 @@ def main():
     # Retrieves token for DNAC API
     dnac = api.DNACenterAPI(username=sys.argv[1],
                             password=sys.argv[2],
-                            base_url="https://localhost",
+                            base_url=sys.argv[3],
                             verify=False)
     verify_versions(dnac, matrix)
 
