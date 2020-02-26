@@ -24,11 +24,13 @@ def matrix_builder(dna_version):
     url = r'https://www.cisco.com/c/en/us/solutions/enterprise-networks/software-defined-access/compatibility-matrix.html'
     tables = pd.read_html(url)
 
-    # Select table of release train 1.3.X  or 1.2.X
-    if(dna_version > "1.3"):
+    # Select table of release train 1.3.1.X, 1.3.X or 1.2.X
+    if dna_version > "1.3.1":
         compatibility_table = tables[0]
+    elif dna_version > "1.3.0":
+        compatibility_table = tables[1]
     else:
-        compatibility_table = tables[2]
+        compatibility_table = tables[3]
 
     # Select column of desired release
     for columns in compatibility_table.columns:
@@ -50,13 +52,16 @@ def matrix_builder(dna_version):
         while '' in parsed_versions:
             parsed_versions.remove('')
 
-            #Removing special characters from recomended releases
         for device in parsed_platforms:
             for version in parsed_versions:
                 if version == "16.9.41":
                     compatibility_dict[device].append("16.9.4")
                 elif version == "16.9.3s1":
                     compatibility_dict[device].append("16.9.3s")
+                elif version == "16.12.1s1.4":
+                    compatibility_dict[device].append("16.12.1s")
+                elif version == "16.6.5***":
+                    compatibility_dict[device].append("16.6.5")
                 elif version == "16.11.1c3":
                     compatibility_dict[device].append("16.11.1c")
                 else:
@@ -108,11 +113,16 @@ def verify_versions(dnac, matrix):
 
 
 def main():
-    matrix = matrix_builder(sys.argv[4])
+
+    if sys.argv[3] < "1.2":
+        print ("Verification only supported for DNAC versions from 1.2.2 onward")
+        return
+
+    matrix = matrix_builder(sys.argv[3])
     # Retrieves token for DNAC API
     dnac = api.DNACenterAPI(username=sys.argv[1],
                             password=sys.argv[2],
-                            base_url=sys.argv[3],
+                            base_url="https://localhost",
                             verify=False)
     verify_versions(dnac, matrix)
 
