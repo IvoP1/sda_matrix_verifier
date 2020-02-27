@@ -118,7 +118,7 @@ def main():
         print ("Verification only supported for DNAC versions from 1.2.2 onward")
         return
 
-    matrix = matrix_builder(sys.argv[3])
+    matrix = matrix_builder(sys.argv[4])
     # Retrieves token for DNAC API
     dnac = api.DNACenterAPI(username=sys.argv[1],
                             password=sys.argv[2],
