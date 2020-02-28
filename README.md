@@ -17,21 +17,15 @@ python3 verifier.py username password url dna_version
 
 ## Example
 ```bash
-ivpinto@IVPINTO-M-K16Y Desktop % python3 verifier.py admin 'C!sc0123' https://localhost 1.2.12
-Unsupported Version; Hostname: POD3-BR-01.lab.cisco.com Current version: 16.12.1s
-Unsupported Version; Hostname: POD3-FE-01.lab.cisco.com Current version: 16.12.2s
-Unsupported Version; Hostname: POD3-FE-02.lab.cisco.com Current version: 16.12.2s
-Unsupported Version; Hostname: POD3-FE-03.lab.cisco.com Current version: 16.12.2s
-Unsupported Version; Hostname: POD3-INT-01.lab.cisco.com Current version: 16.12.2s
-Verification for device type WS-C3560CX-8PT-S not supported
+ivpinto@IVPINTO-M-K16Y sda_matrix_verifier % python3 verifier.py devnetuser 'Cisco123!' 'https://sandboxdnac.cisco.com/' 1.2.2 
+Unsupported Version; Hostname: cat_9k_1.abc.inc Current version: 16.6.4a
+Unsupported Version; Hostname: cat_9k_2.abc.inc Current version: 16.6.4a
+Unsupported Version; Hostname: cs3850.abc.inc Current version: 16.6.2s
 
-ivpinto@IVPINTO-M-K16Y Desktop % python3 verifier.py admin 'C!sc0123' https://localhost 1.3.0.7
-Correct version: POD3-BR-01.lab.cisco.com
-Unsupported Version; Hostname: POD3-FE-01.lab.cisco.com Current version: 16.12.2s
-Unsupported Version; Hostname: POD3-FE-02.lab.cisco.com Current version: 16.12.2s
-Unsupported Version; Hostname: POD3-FE-03.lab.cisco.com Current version: 16.12.2s
-Unsupported Version; Hostname: POD3-INT-01.lab.cisco.com Current version: 16.12.2s
-Verification for device type WS-C3560CX-8PT-S not supported
+ivpinto@IVPINTO-M-K16Y sda_matrix_verifier % python3 verifier.py devnetuser 'Cisco123!' 'https://sandboxdnac.cisco.com/' 1.3.1.4
+Correct version: cat_9k_1.abc.inc
+Correct version: cat_9k_2.abc.inc
+Unsupported Version; Hostname: cs3850.abc.inc Current version: 16.6.2s
 ```
 
 We can see the device POD3-BR-01.lab.cisco.com running version 16.12.1s is not supported on DNAC version 1.2.12 but is supported on version 1.3.0.7
