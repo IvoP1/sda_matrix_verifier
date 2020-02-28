@@ -28,7 +28,7 @@ Correct version: cat_9k_2.abc.inc
 Unsupported Version; Hostname: cs3850.abc.inc Current version: 16.6.2s
 ```
 
-We can see the device POD3-BR-01.lab.cisco.com running version 16.12.1s is not supported on DNAC version 1.2.12 but is supported on version 1.3.0.7
+We can see the devices cat_9k_1.abc.inc/cat_9k_2.abc.inc running version 16.6.4a are not supported on DNAC version 1.2.2 but is supported on version 1.3.1.4
 
 ## Considerations
 
