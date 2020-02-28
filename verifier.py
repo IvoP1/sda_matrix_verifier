@@ -114,7 +114,7 @@ def verify_versions(dnac, matrix):
 
 def main():
 
-    if sys.argv[3] < "1.2":
+    if sys.argv[4] < "1.2":
         print ("Verification only supported for DNAC versions from 1.2.2 onward")
         return
 
